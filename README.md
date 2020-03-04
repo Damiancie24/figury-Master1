@@ -1,2 +1,2 @@
-# figury-Master1
-trojkat
+# Figury
+Prosta hierarchia klas - ćwiczenie
