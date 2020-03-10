@@ -56,5 +56,7 @@ namespace FiguryLibrary
         {
             Console.WriteLine("rysowanie trojkata");
         }
+
+
     }
 }
