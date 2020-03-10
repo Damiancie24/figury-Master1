@@ -17,13 +17,43 @@ namespace ConsoleAppFigury
             Console.WriteLine(t.Color);
             t.Print();
 
-            var c = new Circle(); // Pilimorfizm 
-            c.Print();
+           // var c = new Circle(); // Pilimorfizm 
+            //c.Print();
 
             var s = new Sphere(10);
             Console.WriteLine(s);
 
-            
+            var c = new Circle(1);
+            var t1 = new Triangle(3, 4, 5);
+            var s1 = new Sphere(2);
+
+            List<Figure> lista;
+            lista = new List<Figure>();
+            lista.Add(t);
+            lista.Add(s);
+            lista.Add(c);
+            lista.Add(t1);
+            lista.Add(s1);
+            lista.Add(new Circle(4));
+
+
+            foreach(var f in lista)
+            {
+                Console.WriteLine(f);
+            }
+
+            Console.WriteLine("----------");
+            var total = 0.0;
+            foreach(var f in lista)
+            {
+                if(f is IMeasurable2D)
+                {
+                    total += ((IMeasurable2D)f).Surface;
+                    Console.WriteLine(f);
+                }
+                
+            }
+            Console.WriteLine($"sumaryczne pole = {total}");
 
         }
 
@@ -52,8 +82,8 @@ namespace ConsoleAppFigury
             var c2 = c1.Scale(2);
             Console.WriteLine(c2);
 
-            var c3 = c1.Perimiter();
-            Console.WriteLine($"Perimiter {c3}");
+           // var c3 = c1.Perimeter();
+          //  Console.WriteLine($"Perimiter {c3}");
 
 
 

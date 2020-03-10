@@ -10,7 +10,7 @@ namespace FiguryLibrary
     /// </summary>
      
     // Immutable znaczy ze stan tego obiektu nie ulegnie zmianie
-    public class Triangle : Figure
+    public class Triangle : Figure, IMeasurable2D
     {
        public double A { get; private set; } // A jest read-only
        public double B { get; private set; }
@@ -40,7 +40,19 @@ namespace FiguryLibrary
             return $"triangle( {A}, {B}, {C} )";
         }
 
-        public double Permiter() => A + B + C; // obliczamy obwod
+        public double Perimeter => A + B + C; // obliczamy obwod
+
+        public double Surface
+        {
+            get
+            {
+                var p = 0.5 * Perimeter;
+                var s = Math.Sqrt(p * (p - A) * (p - B) * (p - C));
+                return s;
+            }
+        }
+
+      //  public double Perimeter => throw new NotImplementedException();
 
         public Triangle Scale(double factor)
         {

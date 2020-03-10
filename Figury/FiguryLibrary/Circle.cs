@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FiguryLibrary
 {
-    public class Circle : Figure
+    public class Circle : Figure, IMeasurable2D
     {
        public double R { get; private set; }
 
@@ -19,10 +19,10 @@ namespace FiguryLibrary
 
         }
 
-        public virtual double Perimiter() => 2 * Math.PI * R; // obliczamy obwod
+        public virtual double Perimeter => 2 * Math.PI * R; // obliczamy obwod
 
 
-        public virtual double Surface() => Math.PI * (R * R);
+        public virtual double Surface => Math.PI * (R * R);
 
         public override string ToString()
         {

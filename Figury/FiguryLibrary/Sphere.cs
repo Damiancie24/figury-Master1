@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FiguryLibrary
 {
-   public class Sphere : Circle
+   public class Sphere : Circle, IMeasurable1D, IMeasurable2D
     {
         public Sphere(double r = 1) : base(r)
         {
@@ -17,10 +17,12 @@ namespace FiguryLibrary
             
         }
 
-        //public override double Surface => 4 * base.Surface;
+        public override double Surface => 4 * base.Surface;
 
 
         public new double Perimeter => throw new NotSupportedException("sfera nie ma obwodu");
+
+        public double Length => Perimeter;
 
         // Skalowanie
         public new Sphere Scale(double factor)
